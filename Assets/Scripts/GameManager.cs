@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioSource musicAudio;
+    public AudioSource gameOverAudio;
+    public AudioSource coinAudio;
     public GameObject gameOverScreen;
     public Text currentScoreValueText;
     public Text highScoreValueText;
@@ -44,10 +47,15 @@ public class GameManager : MonoBehaviour
         currentScoreValueText.text = currentScore.ToString();
         highScoreValueText.text = highScore.ToString();
         isGameOver = true;
+
+        musicAudio.Stop();
+        gameOverAudio.Play();
     }
 
     private void OnCoinCollected() {
         currentScore++;
         gameScore.text = currentScore.ToString();
+
+        coinAudio.Play();
     }
 }
