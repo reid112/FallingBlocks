@@ -1203,7 +1203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingBlockPrefab: {fileID: 1857146326950240292, guid: b9b722e8eabd24bc38b6f7d9b9365580,
     type: 3}
-  secondsBetweenSpawns: 1
+  secondsBetweenSpawnsMin: 0.4
+  secondsBetweenSpawnsMax: 1
   spawnSizeMin: {x: 0.5, y: 0.5}
   spawnSizeMax: {x: 2, y: 2}
   spawnAngleMax: 0
@@ -1233,12 +1234,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df85723a46e874dc5b8d4c9bfd3a1777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingBlockPrefab: {fileID: 7355058097040959363, guid: 426d1c455ad5048a5a91c5e462ab378e,
+  coinPrefab: {fileID: 8067204953242056967, guid: 7912e6b59f18e1040b5ac81b2298ac84,
     type: 3}
   secondsBetweenSpawns: 3
-  spawnSizeMin: {x: 0.2, y: 0.25}
-  spawnSizeMax: {x: 0.2, y: 0.25}
-  spawnAngleMax: 0
+  spawnSize: {x: 0.2, y: 0.25}
 --- !u!1 &1712139900
 GameObject:
   m_ObjectHideFlags: 0
