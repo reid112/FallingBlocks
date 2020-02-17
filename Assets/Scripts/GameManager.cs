@@ -14,12 +14,15 @@ public class GameManager : MonoBehaviour
     PlayerController playerController;
 
     int currentScore = 0;
+    int highScore = 0;
     bool isGameOver;
     
     private void Start() {
         playerController = FindObjectOfType<PlayerController>();
         playerController.OnPlayerDeath += OnGameOver;
         playerController.OnCoinCollected += OnCoinCollected;
+
+        highScore = PlayerPrefs.GetInt(Constants.HIGH_SCORE_KEY, 0);
     }
 
     void Update()
@@ -32,9 +35,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void OnGameOver() {
+        if (currentScore > highScore) {
+            highScore = currentScore;
+            PlayerPrefs.SetInt(Constants.HIGH_SCORE_KEY, highScore);
+        }
+        
         gameOverScreen.SetActive(true);
-        currentScoreValueText.text = "5"; // TODO
-        highScoreValueText.text = "10"; // TODO
+        currentScoreValueText.text = currentScore.ToString();
+        highScoreValueText.text = highScore.ToString();
         isGameOver = true;
     }
 
