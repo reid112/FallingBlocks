@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class GameManager : MonoBehaviour
 
     int currentScore = 0;
     int highScore = 0;
-    bool isGameOver;
     
     private void Start() {
         playerController = FindObjectOfType<PlayerController>();
@@ -28,25 +26,16 @@ public class GameManager : MonoBehaviour
         highScore = PlayerPrefs.GetInt(Constants.HIGH_SCORE_KEY, 0);
     }
 
-    void Update()
-    {
-        if (isGameOver) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                SceneManager.LoadScene(0);
-            }
-        }
-    }
-
     private void OnGameOver() {
         if (currentScore > highScore) {
             highScore = currentScore;
             PlayerPrefs.SetInt(Constants.HIGH_SCORE_KEY, highScore);
         }
         
+        gameScore.gameObject.SetActive(false);
         gameOverScreen.SetActive(true);
         currentScoreValueText.text = currentScore.ToString();
         highScoreValueText.text = highScore.ToString();
-        isGameOver = true;
 
         musicAudio.Stop();
         gameOverAudio.Play();
