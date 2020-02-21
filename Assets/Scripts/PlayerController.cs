@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     float halfPlayerWidthInWorldUnits;
     float halfPlayerHeightInWorldUnits;
 
+    Rect rightScreenRect;
+
     public event System.Action OnPlayerDeath;
     public event System.Action OnCoinCollected;
 
@@ -20,11 +22,26 @@ public class PlayerController : MonoBehaviour
         halfScreenWithInWorldUnits = Camera.main.aspect * Camera.main.orthographicSize + halfPlayerWidthInWorldUnits;
 
         transform.position = new Vector2(0, -5 + halfPlayerHeightInWorldUnits + playerPositionFromBottom);
+    
+        rightScreenRect = new Rect(0, 0, halfScreenWithInWorldUnits, Camera.main.aspect * Camera.main.orthographicSize * 2);
     }
 
     void Update()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
+        
+
+
+        foreach (Touch touch in Input.touches) {
+            if (touch.position.x < Screen.width/2) {
+                inputX = -1;
+            } else  {
+                inputX = 1;
+            }
+        }
+
+
+
         float velocity = inputX * speed;
         transform.Translate(Vector2.right * velocity * Time.deltaTime);
 

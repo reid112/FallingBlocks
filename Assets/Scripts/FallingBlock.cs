@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FallingBlock : MonoBehaviour
 {
-    public float minSpeed = 7;
-    public float maxSpeed = 12;
+    public float minSpeed;
+    public float maxSpeed;
     Vector2 halfScreenDimensionsInWorldUnits;
 
     void Start() {
