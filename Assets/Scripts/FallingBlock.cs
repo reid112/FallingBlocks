@@ -15,7 +15,7 @@ public class FallingBlock : MonoBehaviour
 
     void Update()
     {
-        float speed = Random.Range(minSpeed, maxSpeed);
+        float speed = Mathf.Lerp(minSpeed, maxSpeed, DifficultyManager.GetDifficultyPercent());
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
         if (transform.position.y < -halfScreenDimensionsInWorldUnits.y - transform.localScale.y) {
