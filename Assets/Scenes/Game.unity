@@ -1773,10 +1773,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsBetweenSpawnsMin: 0.4
   secondsBetweenSpawnsMax: 1.5
-  spawnAngleMax: 0
-  spawnSizeMin: {x: 0.5, y: 0.5}
-  spawnSizeMax: {x: 2, y: 2}
-  fallingBlockPrefab: {fileID: 1857146326950240292, guid: b9b722e8eabd24bc38b6f7d9b9365580,
+  spawnAngleMax: 2
+  spawnSizeMin: 2
+  spawnSizeMax: 8
+  fallingBlockPrefab: {fileID: 5806022280657966949, guid: 6b1cab19cad8848a9acbdf04b36e4877,
     type: 3}
 --- !u!4 &1655442622
 Transform:

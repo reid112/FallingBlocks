@@ -6,6 +6,7 @@ public class FallingBlock : MonoBehaviour
 {
     public float minSpeed;
     public float maxSpeed;
+    public float rotationSpeed;
     
     Vector2 halfScreenDimensionsInWorldUnits;
 
@@ -17,8 +18,9 @@ public class FallingBlock : MonoBehaviour
     void Update()
     {
         float speed = Mathf.Lerp(minSpeed, maxSpeed, DifficultyManager.GetDifficultyPercent());
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
-
+        transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
+        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+    
         if (transform.position.y < -halfScreenDimensionsInWorldUnits.y - transform.localScale.y) {
             Destroy(gameObject);
         }
