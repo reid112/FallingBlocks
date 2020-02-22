@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public event System.Action OnPlayerDeath;
     public event System.Action OnCoinCollected;
+    public event System.Action OnSuperSpeedStart;
+    public event System.Action OnSuperSpeedEnd;
     
     public float speed = 7;
     public float superSpeed = 14;
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
             superSpeedTimeRemaining -= Time.deltaTime;
         } else {
             isSuperSpeed = false;
+            OnSuperSpeedEnd?.Invoke();
         }
     }
 
@@ -77,6 +80,7 @@ public class PlayerController : MonoBehaviour
         } else if (triggerCollider.tag == "Speed Power Up") {
             isSuperSpeed = true;
             superSpeedTimeRemaining = superSpeedTime;
+            OnSuperSpeedStart?.Invoke();
             Destroy(triggerCollider.gameObject);
         }
     }

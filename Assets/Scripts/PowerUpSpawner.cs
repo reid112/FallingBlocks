@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PowerUpSpawner : MonoBehaviour
 {
-    public float secondsBetweenSpawns;
+    public float minSecondsBetweenSpawns;
+    public float maxSecondsBetweenSpawns;
     public GameObject speedPowerUpPrefab;
     public Vector2 spawnSize;
     
@@ -15,12 +16,13 @@ public class PowerUpSpawner : MonoBehaviour
     {
         float orthoSize = Camera.main.orthographicSize;
         halfScreenDimensionsInWorldUnits = new Vector2(Camera.main.aspect * orthoSize, orthoSize);
+        nextSpawnTime = Random.Range(minSecondsBetweenSpawns, maxSecondsBetweenSpawns);
     }
 
     void Update()
     {
         if (Time.timeSinceLevelLoad > nextSpawnTime) {
-            nextSpawnTime = Time.timeSinceLevelLoad + secondsBetweenSpawns;
+            nextSpawnTime = Time.timeSinceLevelLoad + Random.Range(minSecondsBetweenSpawns, maxSecondsBetweenSpawns);
             
             float spawnPositionX = Random.Range(-halfScreenDimensionsInWorldUnits.x, halfScreenDimensionsInWorldUnits.x);
             float spawnPositionY = halfScreenDimensionsInWorldUnits.y + spawnSize.y;

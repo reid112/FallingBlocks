@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public AudioSource musicAudio;
     public AudioSource gameOverAudio;
     public AudioSource coinAudio;
+    public AudioSource speedAudio;
     public GameObject gameOverScreen;
     public Text currentScoreValueText;
     public Text highScoreValueText;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         playerController.OnPlayerDeath += OnGameOver;
         playerController.OnCoinCollected += OnCoinCollected;
+        playerController.OnSuperSpeedStart += OnSuperSpeedStart;
+        playerController.OnSuperSpeedEnd += OnSuperSpeedEnd;
 
         highScore = PlayerPrefs.GetInt(Constants.HIGH_SCORE_KEY, 0);
     }
@@ -46,5 +49,14 @@ public class GameManager : MonoBehaviour
         gameScore.text = currentScore.ToString();
 
         coinAudio.Play();
+    }
+
+    private void OnSuperSpeedStart() {
+        speedAudio.Play();
+        musicAudio.pitch = 1.1f;
+    }
+
+    private void OnSuperSpeedEnd() {
+        musicAudio.pitch = 1;
     }
 }
