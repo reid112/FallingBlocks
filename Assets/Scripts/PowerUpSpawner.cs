@@ -6,10 +6,11 @@ public class PowerUpSpawner : MonoBehaviour
 {
     public float minSecondsBetweenSpawns;
     public float maxSecondsBetweenSpawns;
-    public GameObject speedPowerUpPrefab;
+    public GameObject[] powerUpPrefabs;
     public Vector2 spawnSize;
     
     float nextSpawnTime;
+    GameObject nextSpawnPowerUp;
     Vector2 halfScreenDimensionsInWorldUnits;
 
     void Start()
@@ -22,6 +23,7 @@ public class PowerUpSpawner : MonoBehaviour
     void Update()
     {
         if (Time.timeSinceLevelLoad > nextSpawnTime) {
+            nextSpawnPowerUp = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
             nextSpawnTime = Time.timeSinceLevelLoad + Random.Range(minSecondsBetweenSpawns, maxSecondsBetweenSpawns);
             
             float spawnPositionX = Random.Range(-halfScreenDimensionsInWorldUnits.x, halfScreenDimensionsInWorldUnits.x);
@@ -29,7 +31,7 @@ public class PowerUpSpawner : MonoBehaviour
 
             Vector2 spawnPosition = new Vector2(spawnPositionX, spawnPositionY);
             
-            GameObject spawnedPowerUp = (GameObject) Instantiate(speedPowerUpPrefab, spawnPosition, Quaternion.identity);
+            GameObject spawnedPowerUp = (GameObject) Instantiate(nextSpawnPowerUp, spawnPosition, Quaternion.identity);
 
             spawnedPowerUp.transform.localScale = new Vector2(spawnSize.x, spawnSize.y);
         }

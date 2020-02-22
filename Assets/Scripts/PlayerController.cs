@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public event System.Action OnPlayerDeath;
+    public event System.Action<GameObject> OnHitByBlock;
     public event System.Action OnCoinCollected;
     public event System.Action OnSuperSpeedStart;
     public event System.Action OnSuperSpeedEnd;
+    public event System.Action OnLifeCollected;
     
     public float speed = 7;
     public float superSpeed = 14;
@@ -72,8 +73,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D triggerCollider) {
         if (triggerCollider.tag == "Falling Block") {
-            OnPlayerDeath?.Invoke();
-            Destroy(gameObject);
+            OnHitByBlock?.Invoke(triggerCollider.gameObject);
         } else if (triggerCollider.tag == "Coin") {
             OnCoinCollected?.Invoke();
             Destroy(triggerCollider.gameObject);
@@ -81,6 +81,9 @@ public class PlayerController : MonoBehaviour
             isSuperSpeed = true;
             superSpeedTimeRemaining = superSpeedTime;
             OnSuperSpeedStart?.Invoke();
+            Destroy(triggerCollider.gameObject);
+        } else if (triggerCollider.tag == "Life Power Up") {
+            OnLifeCollected?.Invoke();
             Destroy(triggerCollider.gameObject);
         }
     }
