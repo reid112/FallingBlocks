@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingBlock : MonoBehaviour
+public class SpeedPowerUp : MonoBehaviour
 {
     public float minSpeed;
     public float maxSpeed;
@@ -16,7 +16,7 @@ public class FallingBlock : MonoBehaviour
 
     void Update()
     {
-        float speed = Mathf.Lerp(minSpeed, maxSpeed, DifficultyManager.GetDifficultyPercent());
+        float speed = Random.Range(minSpeed, maxSpeed);
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
         if (transform.position.y < -halfScreenDimensionsInWorldUnits.y - transform.localScale.y) {

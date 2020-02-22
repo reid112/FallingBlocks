@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
     public Text highScoreValueText;
     public Text gameScore;
 
-    PlayerController playerController;
-
     int currentScore = 0;
     int highScore = 0;
+
+    PlayerController playerController;
     
     private void Start() {
         playerController = FindObjectOfType<PlayerController>();

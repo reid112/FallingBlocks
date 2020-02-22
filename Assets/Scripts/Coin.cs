@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 {
     public float minSpeed;
     public float maxSpeed;
+    
     Vector2 halfScreenDimensionsInWorldUnits;
 
     void Start() {

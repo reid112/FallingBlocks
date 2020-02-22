@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    public GameObject fallingBlockPrefab;
     public float secondsBetweenSpawnsMin;
     public float secondsBetweenSpawnsMax;
-    float nextSpawnTime;
-    Vector2 halfScreenDimensionsInWorldUnits;
+    public float spawnAngleMax;
     public Vector2 spawnSizeMin;
     public Vector2 spawnSizeMax;
-    public float spawnAngleMax;
+    public GameObject fallingBlockPrefab;
+
+    float nextSpawnTime;
+    Vector2 halfScreenDimensionsInWorldUnits;
 
     void Start()
     {

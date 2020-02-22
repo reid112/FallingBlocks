@@ -1,14 +1,15 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSpawner : MonoBehaviour
+public class PowerUpSpawner : MonoBehaviour
 {
- public GameObject coinPrefab;
     public float secondsBetweenSpawns;
+    public GameObject speedPowerUpPrefab;
+    public Vector2 spawnSize;
+    
     float nextSpawnTime;
     Vector2 halfScreenDimensionsInWorldUnits;
-    public Vector2 spawnSize;
 
     void Start()
     {
@@ -26,9 +27,9 @@ public class CoinSpawner : MonoBehaviour
 
             Vector2 spawnPosition = new Vector2(spawnPositionX, spawnPositionY);
             
-            GameObject spawnedCoin = (GameObject) Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
+            GameObject spawnedPowerUp = (GameObject) Instantiate(speedPowerUpPrefab, spawnPosition, Quaternion.identity);
 
-            spawnedCoin.transform.localScale = new Vector2(spawnSize.x, spawnSize.y);
+            spawnedPowerUp.transform.localScale = new Vector2(spawnSize.x, spawnSize.y);
         }
     }   
 }

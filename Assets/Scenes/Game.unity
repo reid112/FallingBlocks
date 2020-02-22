@@ -563,7 +563,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1138,6 +1138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  superSpeed: 14
+  superSpeedTime: 5
   playerPositionFromBottom: 0.3
 --- !u!50 &1478550195
 Rigidbody2D:
@@ -1490,6 +1492,7 @@ GameObject:
   - component: {fileID: 1655442622}
   - component: {fileID: 1655442621}
   - component: {fileID: 1655442623}
+  - component: {fileID: 1655442624}
   m_Layer: 0
   m_Name: Spawn Manager
   m_TagString: Untagged
@@ -1509,13 +1512,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa1fda31326c4ce88484c9416e62247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingBlockPrefab: {fileID: 1857146326950240292, guid: b9b722e8eabd24bc38b6f7d9b9365580,
-    type: 3}
   secondsBetweenSpawnsMin: 0.4
   secondsBetweenSpawnsMax: 1.5
+  spawnAngleMax: 0
   spawnSizeMin: {x: 0.5, y: 0.5}
   spawnSizeMax: {x: 2, y: 2}
-  spawnAngleMax: 0
+  fallingBlockPrefab: {fileID: 1857146326950240292, guid: b9b722e8eabd24bc38b6f7d9b9365580,
+    type: 3}
 --- !u!4 &1655442622
 Transform:
   m_ObjectHideFlags: 0
@@ -1546,6 +1549,22 @@ MonoBehaviour:
     type: 3}
   secondsBetweenSpawns: 3
   spawnSize: {x: 0.2, y: 0.25}
+--- !u!114 &1655442624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655442620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1a3efa4b391477d9f49097f9d7f974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsBetweenSpawns: 10
+  speedPowerUpPrefab: {fileID: 8943416526770319133, guid: deab86e7c3de44621871f7c7a5cfa5c5,
+    type: 3}
+  spawnSize: {x: 0.3, y: 0.4}
 --- !u!1 &1920614934
 GameObject:
   m_ObjectHideFlags: 0
