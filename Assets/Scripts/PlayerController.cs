@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public event System.Action<GameObject> OnHitByBlock;
     public event System.Action OnCoinCollected;
+    public event System.Action OnRareCoinCollected;
     public event System.Action OnSuperSpeedStart;
     public event System.Action OnSuperSpeedEnd;
     public event System.Action OnLifeCollected;
@@ -76,6 +77,9 @@ public class PlayerController : MonoBehaviour
             OnHitByBlock?.Invoke(triggerCollider.gameObject);
         } else if (triggerCollider.tag == "Coin") {
             OnCoinCollected?.Invoke();
+            Destroy(triggerCollider.gameObject);
+        } else if (triggerCollider.tag == "Rare Coin") {
+            OnRareCoinCollected?.Invoke();
             Destroy(triggerCollider.gameObject);
         } else if (triggerCollider.tag == "Speed Power Up") {
             isSuperSpeed = true;

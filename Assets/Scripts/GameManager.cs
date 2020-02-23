@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public AudioSource musicAudio;
     public AudioSource gameOverAudio;
     public AudioSource coinAudio;
+    public AudioSource rareCoinAudio;
     public AudioSource speedAudio;
     public AudioSource loseLifeAudio;
     public AudioSource gainLifeAudio;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         playerController.OnHitByBlock += OnHitByBlock;
         playerController.OnCoinCollected += OnCoinCollected;
+        playerController.OnRareCoinCollected += OnRareCoinCollected;
         playerController.OnSuperSpeedStart += OnSuperSpeedStart;
         playerController.OnSuperSpeedEnd += OnSuperSpeedEnd;
         playerController.OnLifeCollected += OnLifeGained;
@@ -66,6 +68,13 @@ public class GameManager : MonoBehaviour
         gameScore.text = "Score: " + currentScore.ToString();
 
         coinAudio.Play();
+    }
+
+    private void OnRareCoinCollected() {
+        currentScore += 3;
+        gameScore.text = "Score: " + currentScore.ToString();
+
+        rareCoinAudio.Play();
     }
 
     private void OnSuperSpeedStart() {

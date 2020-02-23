@@ -1,31 +1,7 @@
 fileFormatVersion: 2
-guid: a80f0cacea53c4457bd21dec46816f4e
+guid: de70386b2baed8544aaf73923afaf2ae
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 3901333750411442158
-    second: UFO_0
-  - first:
-      213: 760776873134828032
-    second: UFO_1
-  - first:
-      213: 7974080682413368635
-    second: UFO_2
-  - first:
-      213: 1904099725924694767
-    second: UFO_3
-  - first:
-      213: 4842167458151539953
-    second: UFO_0
-  - first:
-      213: 6933155428002613183
-    second: UFO_1
-  - first:
-      213: -9138651922402435286
-    second: UFO_2
-  - first:
-      213: 5902379996639896798
-    second: UFO_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -64,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 40
+  spritePixelsToUnits: 75
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -96,6 +72,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -142,105 +130,9 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: UFO_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 4
-        width: 30
-        height: 26
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f42416f5a5d23340800000000000000
-      internalID: 4842167458151539953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UFO_1
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 4
-        width: 30
-        height: 26
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb7caaad024873060800000000000000
-      internalID: 6933155428002613183
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UFO_2
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 4
-        width: 30
-        height: 26
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2f1347ce7cfc2180800000000000000
-      internalID: -9138651922402435286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UFO_3
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 1
-        width: 30
-        height: 29
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed4a715b55779e150800000000000000
-      internalID: 5902379996639896798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

@@ -6,7 +6,6 @@ public class BlockSpawner : MonoBehaviour
 {
     public float secondsBetweenSpawnsMin;
     public float secondsBetweenSpawnsMax;
-    public float spawnAngleMax;
     public float spawnSizeMin;
     public float spawnSizeMax;
     public GameObject fallingBlockPrefab;
@@ -27,13 +26,12 @@ public class BlockSpawner : MonoBehaviour
             nextSpawnTime = Time.timeSinceLevelLoad + Mathf.Lerp(secondsBetweenSpawnsMax, secondsBetweenSpawnsMin, DifficultyManager.GetDifficultyPercent());
 
             float spawnSize = Random.Range(spawnSizeMin, spawnSizeMax);
-            float spawnAngle = Random.Range(-spawnAngleMax, spawnAngleMax);
             float spawnPositionX = Random.Range(-halfScreenDimensionsInWorldUnits.x, halfScreenDimensionsInWorldUnits.x);
             float spawnPositionY = halfScreenDimensionsInWorldUnits.y + spawnSize;
 
             Vector2 spawnPosition = new Vector2(spawnPositionX, spawnPositionY);
             
-            GameObject spawnedBlock = (GameObject) Instantiate(fallingBlockPrefab, spawnPosition, Quaternion.Euler(Vector3.forward * spawnAngle));
+            GameObject spawnedBlock = (GameObject) Instantiate(fallingBlockPrefab, spawnPosition, Quaternion.identity);
 
             spawnedBlock.transform.localScale = new Vector2(spawnSize, spawnSize);
         }

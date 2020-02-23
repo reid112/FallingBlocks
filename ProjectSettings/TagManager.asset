@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - Speed Power Up
   - Life Power Up
+  - Rare Coin
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1591914555
+    locked: 0
+  - name: Foreground
+    uniqueID: 3940235175
     locked: 0
