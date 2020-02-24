@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -18,14 +16,15 @@ public class GameManager : MonoBehaviour
     public Text gameScore;
     public Text lives;
 
-    int currentScore = 0;
-    int highScore = 0;
-    int livesRemaining = 1;
+    private int currentScore = 0;
+    private int highScore = 0;
+    private int livesRemaining = 1;
 
-    PlayerController playerController;
+    private PlayerController playerController;
     
     private void Start() {
         playerController = FindObjectOfType<PlayerController>();
+
         playerController.OnHitByBlock += OnHitByBlock;
         playerController.OnCoinCollected += OnCoinCollected;
         playerController.OnRareCoinCollected += OnRareCoinCollected;
@@ -46,6 +45,7 @@ public class GameManager : MonoBehaviour
         
         gameScore.gameObject.SetActive(false);
         gameOverScreen.SetActive(true);
+
         currentScoreValueText.text = currentScore.ToString();
         highScoreValueText.text = highScore.ToString();
 
@@ -64,22 +64,22 @@ public class GameManager : MonoBehaviour
     }
 
     private void OnCoinCollected() {
-        currentScore++;
-        gameScore.text = "Score: " + currentScore.ToString();
+        currentScore += Constants.COIN_VALUE;
+        gameScore.text = Constants.SCORE_LABEL + currentScore.ToString();
 
         coinAudio.Play();
     }
 
     private void OnRareCoinCollected() {
-        currentScore += 3;
-        gameScore.text = "Score: " + currentScore.ToString();
+        currentScore += Constants.RARE_COIN_VALUE;
+        gameScore.text = Constants.SCORE_LABEL + currentScore.ToString();
 
         rareCoinAudio.Play();
     }
 
     private void OnSuperSpeedStart() {
         speedAudio.Play();
-        musicAudio.pitch = 1.1f;
+        musicAudio.pitch = Constants.SPEED_POWER_UP_MULTIPLIER;
     }
 
     private void OnSuperSpeedEnd() {
@@ -88,13 +88,13 @@ public class GameManager : MonoBehaviour
 
     private void OnLifeGained() {
         livesRemaining++;
-        lives.text = "Lives: " + livesRemaining.ToString();
+        lives.text = Constants.LIVES_LABEL + livesRemaining.ToString();
         gainLifeAudio.Play();
     }
 
     private void OnLifeLost() {
         livesRemaining--;
-        lives.text = "Lives: " + livesRemaining.ToString();
+        lives.text = Constants.LIVES_LABEL + livesRemaining.ToString();
         loseLifeAudio.Play();
     }
 }

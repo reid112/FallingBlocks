@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     public float playerPositionFromBottom = 0.3f;
 
     float halfScreenWithInWorldUnits;
-    float halfPlayerWidthInWorldUnits;
-    float halfPlayerHeightInWorldUnits;
     float superSpeedTimeRemaining;
     bool isSuperSpeed;
 
@@ -28,42 +26,44 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        halfPlayerWidthInWorldUnits = transform.localScale.x / 2f;
-        halfPlayerHeightInWorldUnits = transform.localScale.y / 2f;
+        float halfPlayerWidthInWorldUnits = transform.localScale.x / 2f;
         halfScreenWithInWorldUnits = Camera.main.aspect * Camera.main.orthographicSize + halfPlayerWidthInWorldUnits;
-
-        transform.position = new Vector2(0, -5 + halfPlayerHeightInWorldUnits + playerPositionFromBottom);
     }
 
     void Update()
     {
         // Keyboard input
-        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputX = Input.GetAxisRaw(Constants.HORIZONTAL);
     
         // Touch input
         foreach (Touch touch in Input.touches) {
             if (touch.position.x < Screen.width/2) {
-                inputX = -1;
+                inputX = Constants.LEFT;
             } else {
-                inputX = 1;
+                inputX = Constants.RIGHT;
             }
         }
 
+        // Set speed and/or super speed
         float velocity = inputX * speed;
         if (isSuperSpeed) {
             velocity = inputX * superSpeed;
         } 
     
+        // Move
         transform.Translate(Vector2.right * velocity * Time.deltaTime);
 
+        // Wrap player around screen
         if (transform.position.x < -halfScreenWithInWorldUnits) {
             transform.position = new Vector2(halfScreenWithInWorldUnits, transform.position.y);
         } else if (transform.position.x > halfScreenWithInWorldUnits) {
             transform.position = new Vector2(-halfScreenWithInWorldUnits, transform.position.y);
         }
 
-        animator.SetInteger("Direction", (int) inputX);
+        // Set ufo flames animation direction
+        animator.SetInteger(Constants.ANIMATOR_ROTATION_DIRECTION, (int) inputX);
 
+        // Calculate superspeed
         if (superSpeedTimeRemaining > 0) {
             superSpeedTimeRemaining -= Time.deltaTime;
         } else {
@@ -73,20 +73,20 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D triggerCollider) {
-        if (triggerCollider.tag == "Falling Block") {
+        if (triggerCollider.tag == Constants.TAG_FALLING_BLOCK) {
             OnHitByBlock?.Invoke(triggerCollider.gameObject);
-        } else if (triggerCollider.tag == "Coin") {
+        } else if (triggerCollider.tag == Constants.TAG_COIN) {
             OnCoinCollected?.Invoke();
             Destroy(triggerCollider.gameObject);
-        } else if (triggerCollider.tag == "Rare Coin") {
+        } else if (triggerCollider.tag == Constants.TAG_RARE_COIN) {
             OnRareCoinCollected?.Invoke();
             Destroy(triggerCollider.gameObject);
-        } else if (triggerCollider.tag == "Speed Power Up") {
+        } else if (triggerCollider.tag == Constants.TAG_POWER_UP_SPEED) {
             isSuperSpeed = true;
             superSpeedTimeRemaining = superSpeedTime;
             OnSuperSpeedStart?.Invoke();
             Destroy(triggerCollider.gameObject);
-        } else if (triggerCollider.tag == "Life Power Up") {
+        } else if (triggerCollider.tag == Constants.TAG_POWER_UP_LIFE) {
             OnLifeCollected?.Invoke();
             Destroy(triggerCollider.gameObject);
         }

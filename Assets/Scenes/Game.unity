@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1478550191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7acf8a51489f642c08fe754fafc7608e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ebac878fe44e4d08b011082b40e47c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1570205657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e5deb180a9241c587d1c1149f04927, type: 3}
+  m_Script: {fileID: 11500000, guid: 1699e126244924a7f9874eb47023d181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicAudio: {fileID: 1920614935}
@@ -1902,7 +1902,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655442620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa1fda31326c4ce88484c9416e62247, type: 3}
+  m_Script: {fileID: 11500000, guid: 0053b4861fbdb42529be986aa9705271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   secondsBetweenSpawnsMin: 0.4
@@ -1934,7 +1934,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655442620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df85723a46e874dc5b8d4c9bfd3a1777, type: 3}
+  m_Script: {fileID: 11500000, guid: 54276e5661ec24b19b07b264addae06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 1288948857225873868, guid: 426d1c455ad5048a5a91c5e462ab378e,
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655442620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1a3efa4b391477d9f49097f9d7f974, type: 3}
+  m_Script: {fileID: 11500000, guid: ba6c345c5394d4c5598de4fa28d7e68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minSecondsBetweenSpawns: 10
@@ -1968,7 +1968,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655442620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a37ebfd5bfb5d646b38d62d679f71ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 29d1bd1b9dbdc4eff9dd624b27cc6989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 7323190294892991169, guid: 54d28bfe1184df94399e7a71830b5311,

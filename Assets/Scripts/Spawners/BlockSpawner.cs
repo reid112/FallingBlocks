@@ -10,8 +10,8 @@ public class BlockSpawner : MonoBehaviour
     public float spawnSizeMax;
     public GameObject fallingBlockPrefab;
 
-    float nextSpawnTime;
-    Vector2 halfScreenDimensionsInWorldUnits;
+    private float nextSpawnTime;
+    private Vector2 halfScreenDimensionsInWorldUnits;
 
     void Start()
     {
@@ -22,7 +22,6 @@ public class BlockSpawner : MonoBehaviour
     void Update()
     {
         if (Time.timeSinceLevelLoad > nextSpawnTime) {
-
             nextSpawnTime = Time.timeSinceLevelLoad + Mathf.Lerp(secondsBetweenSpawnsMax, secondsBetweenSpawnsMin, DifficultyManager.GetDifficultyPercent());
 
             float spawnSize = Random.Range(spawnSizeMin, spawnSizeMax);
