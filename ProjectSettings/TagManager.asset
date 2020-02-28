@@ -9,6 +9,14 @@ TagManager:
   - Speed Power Up
   - Life Power Up
   - Rare Coin
+  - Scores Container
+  - Score Input
+  - Score Button
+  - Highscore 1
+  - Highscore 2
+  - Highscore 3
+  - Highscore 4
+  - Highscore 5
   layers:
   - Default
   - TransparentFX

@@ -41,9 +41,13 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(Constants.HIGH_SCORE_KEY, highScore);
         }
 
+        GameObject.FindGameObjectWithTag(Constants.TAG_SCORE_INPUT).SetActive(true);
+        GameObject.FindGameObjectWithTag(Constants.TAG_SCORE_BUTTON).SetActive(true);
+
         Destroy(playerController.gameObject);
         
         gameScore.gameObject.SetActive(false);
+        lives.gameObject.SetActive(false);
         gameOverScreen.SetActive(true);
 
         currentScoreValueText.text = currentScore.ToString();

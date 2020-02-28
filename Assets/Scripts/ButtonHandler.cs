@@ -6,18 +6,18 @@ using UnityEngine.SceneManagement;
 public class ButtonHandler : MonoBehaviour
 {
     public void onMenuClicked() {
-        SceneManager.LoadScene(0);
-    }
-
-    public void OnLeaderboardClicked() {
-        SceneManager.LoadScene(1);
-    }
-
-    public void OnSettingsClicked() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(Constants.SCENE_MENU);
     }
 
     public void OnPlayClicked() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(Constants.SCENE_PLAY);
+    }
+
+    public void OnLeaderboardClicked() {
+        SceneManager.LoadScene(Constants.SCENE_LEADERBOARD);
+    }
+
+    public void OnSettingsClicked() {
+        SceneManager.LoadScene(Constants.SCENE_SETTINGS);
     }
 }
