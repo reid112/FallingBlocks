@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void OnGameOver() {
+        gameScore.gameObject.SetActive(false);
+        lives.gameObject.SetActive(false);
+        gameOverScreen.SetActive(true);
+
         if (currentScore > highScore) {
             highScore = currentScore;
             PlayerPrefs.SetInt(Constants.HIGH_SCORE_KEY, highScore);
@@ -45,10 +49,6 @@ public class GameManager : MonoBehaviour
         GameObject.FindGameObjectWithTag(Constants.TAG_SCORE_BUTTON).SetActive(true);
 
         Destroy(playerController.gameObject);
-        
-        gameScore.gameObject.SetActive(false);
-        lives.gameObject.SetActive(false);
-        gameOverScreen.SetActive(true);
 
         currentScoreValueText.text = currentScore.ToString();
         highScoreValueText.text = highScore.ToString();
